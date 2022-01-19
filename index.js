@@ -205,7 +205,7 @@ app.post("/login", function (req, res) {
 
 
 app.get('/', (req, res) => res.json({
-    status: "error",
+    status: "not error",
   }))
 
 
