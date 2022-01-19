@@ -2,9 +2,10 @@
   "name": "customer-manager-server",
   "version": "1.0.0",
   "description": "",
-  "main": "addresses.js",
+  "main": "db.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node db.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/mahmoud568/customer-manager-server/issues"
   },
-  "homepage": "https://github.com/mahmoud568/customer-manager-server#readme"
+  "homepage": "https://github.com/mahmoud568/customer-manager-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.3"
+  }
 }

@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const faker = require("faker");
+const faker = require("@faker-js/faker");
 
 var firstName = faker.name.firstName;
 var lastName = faker.name.lastName;
