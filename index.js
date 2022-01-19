@@ -86,122 +86,122 @@ var items = [];
 //   });
 // }
 
-// // get all customers
-// app.get("/customers", function (req, res) {
-//   res.json({
-//     customers: customers,
-//   });
-// });
+// get all customers
+app.get("/customers", function (req, res) {
+  res.json({
+    customers: customers,
+  });
+});
 
-// // get customer by id
-// app.get("/customer-information", function (req, res) {
-//   res.json({
-//     customer: customers.find((x) => x.id === parseInt(req.query.id)),
-//   });
-// });
+// get customer by id
+app.get("/customer-information", function (req, res) {
+  res.json({
+    customer: customers.find((x) => x.id === parseInt(req.query.id)),
+  });
+});
 
-// // get all orders
-// app.get("/orders", function (req, res) {
-//   res.json({
-//     orders: orders,
-//   });
-// });
+// get all orders
+app.get("/orders", function (req, res) {
+  res.json({
+    orders: orders,
+  });
+});
 
-// // get orders by customer id
-// app.get("/customer-orders", function (req, res) {
-//   if (orders.find((x) => x.customerID === parseInt(req.query.id))) {
-//     res.json({
-//       orders: orders.find((x) => x.customerID === parseInt(req.query.id)),
-//       status: "success",
-//       details: "customer orders has been found",
-//     });
-//   } else {
-//     res.json({
-//       status: "erorr",
-//       details: "customer orders has been not found",
-//     });
-//   }
-// });
+// get orders by customer id
+app.get("/customer-orders", function (req, res) {
+  if (orders.find((x) => x.customerID === parseInt(req.query.id))) {
+    res.json({
+      orders: orders.find((x) => x.customerID === parseInt(req.query.id)),
+      status: "success",
+      details: "customer orders has been found",
+    });
+  } else {
+    res.json({
+      status: "erorr",
+      details: "customer orders has been not found",
+    });
+  }
+});
 
-// // edit customer by id
-// app.post("/edit-customer", function (req, res) {
-//   var id = parseInt(req.query.id);
-//   var editedCustomer = JSON.parse(req.body.customer);
-//   // loop in customers array untel we find the matches customer then change it value by sended body
-//   for (let i = 0; i < customers.length; i++) {
-//     if (customers[i].id === id) {
-//       customers[i] = editedCustomer;
-//       return res.json({
-//         status: "success",
-//         details: "customer has been deleted succefully",
-//       });
-//     }
-//   }
-//   return res.json({
-//     status: "error",
-//     details: "didn't find this customer",
-//   });
-// });
+// edit customer by id
+app.post("/edit-customer", function (req, res) {
+  var id = parseInt(req.query.id);
+  var editedCustomer = JSON.parse(req.body.customer);
+  // loop in customers array untel we find the matches customer then change it value by sended body
+  for (let i = 0; i < customers.length; i++) {
+    if (customers[i].id === id) {
+      customers[i] = editedCustomer;
+      return res.json({
+        status: "success",
+        details: "customer has been deleted succefully",
+      });
+    }
+  }
+  return res.json({
+    status: "error",
+    details: "didn't find this customer",
+  });
+});
 
-// app.delete("/delete-customer", function (req, res) {
-//   var id = parseInt(req.query.id);
-//   // loop in customers array untel we find the matches customer then change it value by sended body
-//   for (let i = 0; i < customers.length; i++) {
-//     if (customers[i].id === id) {
-//       customers.splice([i], 1);
-//       return res.json({
-//         status: "success",
-//         details: "customer has been updated succefully",
-//       });
-//     }
-//   }
-//   return res.json({
-//     status: "error",
-//     details: "didn't find this customer",
-//   });
-// });
+app.delete("/delete-customer", function (req, res) {
+  var id = parseInt(req.query.id);
+  // loop in customers array untel we find the matches customer then change it value by sended body
+  for (let i = 0; i < customers.length; i++) {
+    if (customers[i].id === id) {
+      customers.splice([i], 1);
+      return res.json({
+        status: "success",
+        details: "customer has been updated succefully",
+      });
+    }
+  }
+  return res.json({
+    status: "error",
+    details: "didn't find this customer",
+  });
+});
 
-// // edit customer by id
-// app.post("/add-customer", function (req, res) {
-//   var newCustomer = JSON.parse(req.body.customer);
-//   newCustomer.id = customers.length;
-//   customers.push(newCustomer);
-//   res.json({
-//     status: "success",
-//     newCustomer: newCustomer,
-//   });
-// });
+// edit customer by id
+app.post("/add-customer", function (req, res) {
+  var newCustomer = JSON.parse(req.body.customer);
+  newCustomer.id = customers.length;
+  customers.push(newCustomer);
+  res.json({
+    status: "success",
+    newCustomer: newCustomer,
+  });
+});
 
-// // login
-// var adminArray = [
-//   {
-//     id: 0,
-//     userName: "admin",
-//     password: "12345",
-//     adminName: "mahmoud",
-//     auth: {
-//       readData: true,
-//       edit: true,
-//       delete: true,
-//       add: true,
-//     },
-//   },
-// ];
-// app.post("/login", function (req, res) {
-//   userName = JSON.parse(req.body.userName);
-//   password = JSON.parse(req.body.password);
-//   let admin = adminArray[0];
-//   if (admin.userName === userName && admin.password === password) {
-//     res.json({
-//       status: "success",
-//       admin: admin,
-//     });
-//   } else {
-//     res.json({
-//       status: "error",
-//     });
-//   }
-// });
+// login
+var adminArray = [
+  {
+    id: 0,
+    userName: "admin",
+    password: "12345",
+    adminName: "mahmoud",
+    auth: {
+      readData: true,
+      edit: true,
+      delete: true,
+      add: true,
+    },
+  },
+];
+app.post("/login", function (req, res) {
+  userName = JSON.parse(req.body.userName);
+  password = JSON.parse(req.body.password);
+  let admin = adminArray[0];
+  if (admin.userName === userName && admin.password === password) {
+    res.json({
+      status: "success",
+      admin: admin,
+    });
+  } else {
+    res.json({
+      status: "error",
+    });
+  }
+});
 
 
 app.get('/', (req, res) => res.json({
