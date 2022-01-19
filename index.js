@@ -202,6 +202,9 @@ const faker = require("@faker-js/faker");
 //     });
 //   }
 // });
+app.get('/', (req, res) => res.json({
+    status: "not error",
+  }))
 
 app.get('/', (req, res) => res.json({
     status: "error",
