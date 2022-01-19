@@ -34,57 +34,57 @@ var addressArray = addresses.addresses;
 let customers = [];
 let orders = [];
 var items = [];
-// for (let i = 0; i < 10; i++) {
-//   let customerFirstName = firstName();
-//   let customeLastName = lastName();
-//   // create orders
-//   let totalorderPrice = 0;
-//   items = [];
-//   for (let j = 1; j < parseInt(Math.random() * 10); j++) {
-//     // data that i would use more than once so i would randmize it here so i can app data make sense
+for (let i = 0; i < 10; i++) {
+  let customerFirstName = firstName();
+  let customeLastName = lastName();
+  // create orders
+  let totalorderPrice = 0;
+  items = [];
+  for (let j = 1; j < parseInt(Math.random() * 10); j++) {
+    // data that i would use more than once so i would randmize it here so i can app data make sense
 
-//     var fakePrice = price();
-//     var itemOrderedQuantity = parseInt(Math.random() * 6) + 1;
-//     var totalItemPrice = itemOrderedQuantity * Math.floor(fakePrice);
-//     totalorderPrice += totalItemPrice;
-//     items.push({
-//       itemName: product(),
-//       itemPrice: fakePrice,
-//       itemOrderedQuantity: itemOrderedQuantity,
-//       totalItemPrice: totalItemPrice,
-//     });
-//   }
-//   if (items.length > 0) {
-//     orders.push({
-//       customerID: i,
-//       cutomerFullName: `${customerFirstName} ${customeLastName}`,
-//       shipmentID: Math.floor(Math.random() * 500),
-//       items: items,
-//       total: totalorderPrice,
-//     });
-//   }
-//   // create users data with random real address
-//   address = addressArray[parseInt(Math.random() * 28)];
-//   customers.push({
-//     id: i,
-//     name: {
-//       firstName: customerFirstName,
-//       lastName: customeLastName,
-//     },
-//     gender: Math.floor(Math.random() * 10) <= 4 ? "female" : "male",
-//     address: {
-//       streetAddress: address.elevation + " " + address.name,
-//       cityName: address.city,
-//       state: address.prov + " " + address.state,
-//     },
-//     location: {
-//       latitude: address.latt,
-//       longitude: address.longt,
-//     },
-//     email: randomEmail(),
-//     totalPayment: totalorderPrice,
-//   });
-// }
+    var fakePrice = price();
+    var itemOrderedQuantity = parseInt(Math.random() * 6) + 1;
+    var totalItemPrice = itemOrderedQuantity * Math.floor(fakePrice);
+    totalorderPrice += totalItemPrice;
+    items.push({
+      itemName: product(),
+      itemPrice: fakePrice,
+      itemOrderedQuantity: itemOrderedQuantity,
+      totalItemPrice: totalItemPrice,
+    });
+  }
+  if (items.length > 0) {
+    orders.push({
+      customerID: i,
+      cutomerFullName: `${customerFirstName} ${customeLastName}`,
+      shipmentID: Math.floor(Math.random() * 500),
+      items: items,
+      total: totalorderPrice,
+    });
+  }
+  // create users data with random real address
+  address = addressArray[parseInt(Math.random() * 28)];
+  customers.push({
+    id: i,
+    name: {
+      firstName: customerFirstName,
+      lastName: customeLastName,
+    },
+    gender: Math.floor(Math.random() * 10) <= 4 ? "female" : "male",
+    address: {
+      streetAddress: address.elevation + " " + address.name,
+      cityName: address.city,
+      state: address.prov + " " + address.state,
+    },
+    location: {
+      latitude: address.latt,
+      longitude: address.longt,
+    },
+    email: randomEmail(),
+    totalPayment: totalorderPrice,
+  });
+}
 
 // get all customers
 app.get("/customers", function (req, res) {
