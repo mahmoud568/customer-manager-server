@@ -12,28 +12,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const faker = require("@faker-js/faker");
 
-// var firstName = faker.name.firstName;
-// var lastName = faker.name.lastName;
-// var randomEmail = faker.internet.email;
+var firstName = faker.name.firstName;
+var lastName = faker.name.lastName;
+var randomEmail = faker.internet.email;
 
-// var product = faker.commerce.product;
-// var price = faker.commerce.price;
+var product = faker.commerce.product;
+var price = faker.commerce.price;
 
-// // real location api
-// // this.http
-// //       .get('https://api.3geonames.org/?randomland=us&json=1')
-// //       .subscribe((res) => {
-// //         console.log(res);
-// //       })
+// real location api
+// this.http
+//       .get('https://api.3geonames.org/?randomland=us&json=1')
+//       .subscribe((res) => {
+//         console.log(res);
+//       })
 
-// // to choose real location for customers
-// // import address array from addresses.js
-// var addresses = require("./addresses");
-// var addressArray = addresses.addresses;
+// to choose real location for customers
+// import address array from addresses.js
+var addresses = require("./addresses");
+var addressArray = addresses.addresses;
 
-// let customers = [];
-// let orders = [];
-// var items = [];
+let customers = [];
+let orders = [];
+var items = [];
 // for (let i = 0; i < 10; i++) {
 //   let customerFirstName = firstName();
 //   let customeLastName = lastName();
@@ -202,9 +202,7 @@ const faker = require("@faker-js/faker");
 //     });
 //   }
 // });
-app.get('/', (req, res) => res.json({
-    status: "not error",
-  }))
+
 
 app.get('/', (req, res) => res.json({
     status: "error",
