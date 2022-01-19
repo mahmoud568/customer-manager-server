@@ -2,27 +2,15 @@
   "name": "customer-manager-server",
   "version": "1.0.0",
   "description": "",
-  "main": "db.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node db.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mahmoud568/customer-manager-server.git"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mahmoud568/customer-manager-server/issues"
-  },
-  "homepage": "https://github.com/mahmoud568/customer-manager-server#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.2"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.3"
   }
 }
