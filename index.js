@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 
 const express = require("express");
@@ -10,14 +9,14 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const faker = require("@faker-js/faker");
 
-var firstName = faker.name.firstName;
-var lastName = faker.name.lastName;
-var randomEmail = faker.internet.email;
+// const faker = require("@faker-js/faker");
+// var firstName = faker.name.firstName;
+// var lastName = faker.name.lastName;
+// var randomEmail = faker.internet.email;
 
-var product = faker.commerce.product;
-var price = faker.commerce.price;
+// var product = faker.commerce.product;
+// var price = faker.commerce.price;
 
 // real location api
 // this.http
@@ -31,24 +30,28 @@ var price = faker.commerce.price;
 var addresses = require("./addresses");
 var addressArray = addresses.addresses;
 
+var fakeCustomers = require("./customers");
+var customerArray = fakeCustomers.customers;
+
+
 let customers = [];
 let orders = [];
 var items = [];
 for (let i = 0; i < 10; i++) {
-  let customerFirstName = firstName();
-  let customeLastName = lastName();
+  let customerFirstName = customerArray[parseInt(Math.random() * 28)].firstName;
+  let customeLastName = customerArray[parseInt(Math.random() * 28)].lastName;
   // create orders
   let totalorderPrice = 0;
   items = [];
   for (let j = 1; j < parseInt(Math.random() * 10); j++) {
     // data that i would use more than once so i would randmize it here so i can app data make sense
 
-    var fakePrice = price();
+    var fakePrice = customerArray[parseInt(Math.random() * 28)].price;
     var itemOrderedQuantity = parseInt(Math.random() * 6) + 1;
     var totalItemPrice = itemOrderedQuantity * Math.floor(fakePrice);
     totalorderPrice += totalItemPrice;
     items.push({
-      itemName: product(),
+      itemName: customerArray[parseInt(Math.random() * 28)].product,
       itemPrice: fakePrice,
       itemOrderedQuantity: itemOrderedQuantity,
       totalItemPrice: totalItemPrice,
@@ -81,7 +84,7 @@ for (let i = 0; i < 10; i++) {
       latitude: address.latt,
       longitude: address.longt,
     },
-    email: randomEmail(),
+    email: customerArray[parseInt(Math.random() * 28)].randomEmail,
     totalPayment: totalorderPrice,
   });
 }
@@ -203,10 +206,10 @@ app.post("/login", function (req, res) {
   }
 });
 
-
-app.get('/', (req, res) => res.json({
+app.get("/", (req, res) =>
+  res.json({
     status: "not error",
-  }))
-
+  })
+);
 
 app.listen(process.env.PORT || 3000);
